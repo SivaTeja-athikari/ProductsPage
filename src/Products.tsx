@@ -49,7 +49,9 @@ export class Products extends Component<IProps, IState> {
   displayProducts = () => {
     const filteredProducts = this.state.data.filter((each: any) => {
       if (
-        each.title.toLowerCase().includes(this.state.inputValue.toLowerCase())
+        each.title
+          .toLowerCase()
+          .includes(this.state.inputValue.trim().toLowerCase())
       ) {
         return each;
       }
@@ -148,6 +150,7 @@ export class Products extends Component<IProps, IState> {
         <View>
           <TextInput
             placeholder="Search here"
+            inputMode="text"
             placeholderTextColor={'black'}
             style={{
               borderColor: 'black',
